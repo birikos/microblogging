@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node ./src/index.js",
-    "start:dev": "DEBUG=* NODE_ENV=development node ./src/debug.js"
+    "start": "node ./index.js",
+    "start:dev": "DEBUG=* NODE_ENV=development node ./debug.js"
   },
   "author": "RM Ángel",
   "license": "ISC",
