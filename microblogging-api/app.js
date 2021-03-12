@@ -10,12 +10,10 @@ app.use(cors())
 app.use(bodyParser.json({ limit: '50mb' }))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 
-
 app.use(function timelog(req, res, next) {
   console.log('fecha actual: ' + Date.now())
   next()
 })
-
 
 app.use('/api', usersRouter)
 app.use('/api', postsRouter)
