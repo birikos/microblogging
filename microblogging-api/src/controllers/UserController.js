@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const User = require('../models/User')
+const jwt = require("../services/jwt");
 
 function index(req, res, next){
   User.find().sort('-creationdate').select(["-password", "-__v"]).exec(function (err, users) {
@@ -17,7 +18,7 @@ function signin(req, res, next){
         if (err) return next(err)
 
         if (isMatch) {
-          res.status(200).send({ message: 'ok', role: user.role, id: user._id })
+          res.status(200).send({ message: 'ok', role: user.role, id: user._id, token: jwt.createToken(user) })
         }
         else {
           res.status(200).send({ message: 'ko' })
